@@ -239,4 +239,14 @@ h2 {
     margin-right: 15px; /* Espacio entre el checkbox y el texto */
     transform: scale(1.2); /* Agrandar para que sea fácil de tocar */
   }
+  .tooltip-text {
+    width: 200px; /* Reduce el ancho del tooltip para móviles */
+    margin-left: -100px; /* Ajusta el margen para mantener el centrado */
+    padding: 8px; /* Un poco menos de padding para ahorrar espacio */
+    font-size: 0.8rem; /* Fuente más pequeña para que quepa mejor */
+  }
+
+  .tooltip-text::after {
+    left: 50%; /* Asegura que la flecha se mantenga centrada */
+  }
 }
