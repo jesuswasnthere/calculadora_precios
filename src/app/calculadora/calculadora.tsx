@@ -6,7 +6,7 @@ import { useCalculadora } from '@/app/calculadora/hooks/useCalculadora'
 export default function Calculadora() {
   const [seleccion, setSeleccion] = useState({
     paginaPrincipal: true,
-    paginasEstaticas: 0,
+    paginasEstaticas: 1,
     paginasConjuntas: 0,
     login: false,
     cambios: 0,
