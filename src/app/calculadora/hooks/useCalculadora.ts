@@ -26,12 +26,12 @@ export function useCalculadora(seleccion: Seleccion) {
   if (seleccion.login) {
     total += precios.funcionalidad.login ?? 0
   }
-  if (seleccion.cambios) {
-    total += seleccion.cambios * precios.postImplementacion.cambios
-  }
-  if (seleccion.nuevasFuncionalidades) {
-    total += seleccion.nuevasFuncionalidades * precios.postImplementacion.nuevasFuncionalidades
-  }
+  // if (seleccion.cambios) {
+  //   total += seleccion.cambios * precios.postImplementacion.cambios
+  // }
+  // if (seleccion.nuevasFuncionalidades) {
+  //   total += seleccion.nuevasFuncionalidades * precios.postImplementacion.nuevasFuncionalidades
+  // }
 
   return total
 }
