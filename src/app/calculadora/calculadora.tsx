@@ -18,6 +18,7 @@ export default function Calculadora() {
   return (
     <div style={{ padding: '2rem' }}>
       <h1>💰 Calculadora de precios</h1>
+      <br />
 
       <label>
         <input
@@ -27,6 +28,7 @@ export default function Calculadora() {
         />
         Página principal
       </label>
+      <br /><br />
 
       <label>
         Páginas estáticas:
@@ -36,6 +38,7 @@ export default function Calculadora() {
           onChange={e => setSeleccion(s => ({ ...s, paginasEstaticas: Number(e.target.value) }))}
         />
       </label>
+      <br /><br />
 
       <label>
         Login:
@@ -45,6 +48,7 @@ export default function Calculadora() {
           onChange={e => setSeleccion(s => ({ ...s, login: e.target.checked }))}
         />
       </label>
+      <br /><br />
 
       <h2>Total: ${total}</h2>
     </div>
