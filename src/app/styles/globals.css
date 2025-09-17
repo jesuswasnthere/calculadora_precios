@@ -143,27 +143,52 @@ h2 {
 }
 
 /* Móviles */
+/* --- Responsividad optimizada para Móviles --- */
 @media (max-width: 480px) {
-  .container {
-    padding: 1rem;
-  }
-  .calculadora {
-    max-width: 100%;
-  }
-  h1 {
-    font-size: 1.5rem;
-  }
-  h2 {
-    font-size: 1.1rem;
-  }
-  label {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  input[type="number"] {
-    margin-left: 0;
-    margin-top: 5px;
-    width: 100%;
-    max-width: 80px;
-  }
+ 
+ /* Ajustar el contenedor principal */
+ .container {
+   padding: 1rem; /* Reducir el relleno para aprovechar el espacio */
+   line-height: 1.5; /* Aumentar el espacio entre líneas para mejor legibilidad */
+ }
+
+ /* Estilos del título principal */
+ h1 {
+   font-size: 1.5rem; /* Título más pequeño para móviles */
+   margin-bottom: 1.5rem; /* Aumentar el espacio debajo del título */
+ }
+
+ /* Estilos para las etiquetas de los checkboxes */
+ label {
+   /* Usar flexbox para alinear el checkbox y el texto */
+   display: flex;
+   align-items: center; /* Centrar verticalmente los elementos */
+   font-size: 1rem; /* Asegurar un tamaño de fuente legible */
+   margin-bottom: 1.25rem; /* Espaciar las opciones para que no se vean amontonadas */
+ }
+
+ /* Ajustar el tamaño del checkbox */
+ input[type="checkbox"] {
+   transform: scale(1.2); /* Agrandar un poco el checkbox para que sea más fácil de tocar */
+   margin-right: 15px; /* Más espacio entre el checkbox y el texto */
+ }
+
+ /* Ocultar el total si no lo necesitas visible todo el tiempo o ajustarlo */
+ h2 {
+   font-size: 1.5rem; /* Mantener un buen tamaño para el total */
+   margin-top: 2rem;
+ }
+
+ /* Ajuste general para la calculadora */
+ .calculadora {
+   padding: 1rem;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añadir una sombra sutil para darle profundidad */
+ }
+
+ /* Si usas la clase 'total-label' para el total, puedes darle estilos específicos */
+ .total-label {
+   font-weight: bold;
+   color: #4CAF50; /* Un color que destaque para el total */
+ }
 }
