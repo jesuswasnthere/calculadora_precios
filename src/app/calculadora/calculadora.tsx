@@ -26,7 +26,7 @@ export default function Calculadora() {
       }}>
 
       <h1>💰 Calculadora de precios</h1>
-      <br />
+      <br /><br /><br />
       <div style={{ marginLeft: '5px' }}>
         <label>
           <input style={{ marginRight: '10px' }}
