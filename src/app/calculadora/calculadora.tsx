@@ -9,6 +9,7 @@ export default function Calculadora() {
     paginasEstaticas: 0,
     paginasDinamicas: 0,
     login: false,
+    dominio: false,
     cambios: 0,
     nuevasFuncionalidades: 0
   })
@@ -71,6 +72,16 @@ export default function Calculadora() {
               onChange={e => setSeleccion(s => ({ ...s, paginasDinamicas: Number(e.target.value) }))}
             />
           )}
+        </label>
+        <br /><br />
+
+        <label>
+          <input style={{ marginRight: '10px' }}
+            type="checkbox"
+            checked={seleccion.dominio}
+            onChange={e => setSeleccion(s => ({ ...s, dominio: e.target.checked }))}
+            />
+            Dominio
         </label>
         <br /><br />
 
