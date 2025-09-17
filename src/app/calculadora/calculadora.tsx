@@ -21,7 +21,7 @@ export default function Calculadora() {
       <br />
 
       <label>
-        <input
+        <input style={{ marginRight: '10px' }}
           type="checkbox"
           checked={seleccion.paginaPrincipal}
           onChange={e => setSeleccion(s => ({ ...s, paginaPrincipal: e.target.checked }))}
@@ -31,8 +31,15 @@ export default function Calculadora() {
       <br /><br />
 
       <label>
-        Páginas estáticas:
-        <input
+        <input style={{ marginRight: '10px' }}
+          type="checkbox"
+          checked={seleccion.paginasEstaticas}
+          onChange={e => setSeleccion(s => ({ ...s, paginasEstaticas: e.target.checked ? 1 : 0 }))}
+        />
+        Páginas estáticas
+        <input style={{ marginLeft: '10px', textAlign: 'center' }}
+          min={0}
+          max={20}
           type="number"
           value={seleccion.paginasEstaticas}
           onChange={e => setSeleccion(s => ({ ...s, paginasEstaticas: Number(e.target.value) }))}
@@ -41,12 +48,12 @@ export default function Calculadora() {
       <br /><br />
 
       <label>
-        Login:
-        <input
+        <input style={{ marginRight: '10px' }}
           type="checkbox"
           checked={seleccion.login}
           onChange={e => setSeleccion(s => ({ ...s, login: e.target.checked }))}
-        />
+          />
+          Login
       </label>
       <br /><br />
 
