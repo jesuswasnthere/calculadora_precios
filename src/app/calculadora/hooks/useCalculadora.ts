@@ -6,6 +6,7 @@ type Seleccion = {
   paginasEstaticas?: number
   paginasDinamicas?: number
   dominio?: boolean
+  seccion?: number
   login?: boolean
   ecommerce?: boolean
   cambios?: number
@@ -23,6 +24,9 @@ export function useCalculadora(seleccion: Seleccion) {
   }
   if (seleccion.paginasDinamicas) {
     total += seleccion.paginasDinamicas * precios.implementacion.paginaDinamica.min
+  }
+  if (seleccion.seccion) {
+    total += seleccion.seccion * precios.funcionalidad.seccion.min
   }
   if (seleccion.dominio) {
     total += precios.funcionalidad.dominio
