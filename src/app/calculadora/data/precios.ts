@@ -3,7 +3,7 @@ export const precios = {
   implementacion: {
     paginaPrincipal: 35,
     paginaEstatica: { min: 3, max: 10 },
-    paginaDinamica: { min: 3, max: 15 }
+    paginaDinamica: { min: 15, max: 40 }
   },
   funcionalidad: {
     dominio: 12,

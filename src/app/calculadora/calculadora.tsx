@@ -6,8 +6,8 @@ import { useCalculadora } from '@/app/calculadora/hooks/useCalculadora'
 export default function Calculadora() {
   const [seleccion, setSeleccion] = useState({
     paginaPrincipal: true,
-    paginasEstaticas: 1,
-    paginasConjuntas: 0,
+    paginasEstaticas: 0,
+    paginasDinamicas: 0,
     login: false,
     cambios: 0,
     nuevasFuncionalidades: 0
@@ -52,17 +52,17 @@ export default function Calculadora() {
       <label>
         <input style={{ marginRight: '10px' }}
           type="checkbox"
-          checked={seleccion.paginasEstaticas > 0}
-          onChange={e => setSeleccion(s => ({ ...s, paginasEstaticas: e.target.checked ? 1 : 0 }))}
+          checked={seleccion.paginasDinamicas > 0}
+          onChange={e => setSeleccion(s => ({ ...s, paginasDinamicas: e.target.checked ? 1 : 0 }))}
         />
         Páginas Dinámicas
-        {seleccion.paginasConjuntas > 0 && (
+        {seleccion.paginasDinamicas > 0 && (
           <input style={{ marginLeft: '10px', textAlign: 'center' }}
             min={0}
             max={20}
             type="number"
-            value={seleccion.paginasConjuntas}
-            onChange={e => setSeleccion(s => ({ ...s, paginasConjuntas: Number(e.target.value) }))}
+            value={seleccion.paginasDinamicas}
+            onChange={e => setSeleccion(s => ({ ...s, paginasDinamicas: Number(e.target.value) }))}
           />
         )}
       </label>

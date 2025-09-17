@@ -4,7 +4,7 @@ import { precios } from '@/app/calculadora/data/precios'
 type Seleccion = {
   paginaPrincipal?: boolean
   paginasEstaticas?: number
-  paginasConjuntas?: number
+  paginasDinamicas?: number
   login?: boolean
   ecommerce?: boolean
   cambios?: number
@@ -20,8 +20,8 @@ export function useCalculadora(seleccion: Seleccion) {
   if (seleccion.paginasEstaticas) {
     total += seleccion.paginasEstaticas * precios.implementacion.paginaEstatica.min
   }
-  if (seleccion.paginasConjuntas) {
-    total += seleccion.paginasConjuntas * precios.implementacion.paginaDinamica.min
+  if (seleccion.paginasDinamicas) {
+    total += seleccion.paginasDinamicas * precios.implementacion.paginaDinamica.min
   }
   if (seleccion.login) {
     total += precios.funcionalidad.login ?? 0
