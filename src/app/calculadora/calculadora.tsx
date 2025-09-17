@@ -18,7 +18,7 @@ export default function Calculadora() {
   const total = useCalculadora(seleccion)
 
   return (
-    <div style={{
+    <div className='calculadora' style={{
         padding: '2rem' ,
         display: 'flex', // activa el flex
         flexDirection: 'column', // uno debajo del otro
