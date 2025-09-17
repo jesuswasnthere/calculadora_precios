@@ -19,9 +19,9 @@ export default function Calculadora() {
     <div style={{ padding: '2rem' }}>
       <h1>💰 Calculadora de precios</h1>
       <br />
-
+      <div style={{ marginRight: '10px' }}></div>
         <label>
-          <input style={{ marginLeft: '10px' }}
+          <input style={{ marginRight: '10px' }}
             type="checkbox"
             checked={seleccion.paginaPrincipal}
             onChange={e => setSeleccion(s => ({ ...s, paginaPrincipal: e.target.checked }))}
@@ -79,7 +79,7 @@ export default function Calculadora() {
         <br /><br />
 
         <h2>Total: ${total}</h2>
-
+      </div>
     </div>
   )
 }
