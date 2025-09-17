@@ -15,21 +15,53 @@ export default function Calculadora() {
     nuevasFuncionalidades: 0
   })
 
-  const total = useCalculadora(seleccion)
+  // Nuevos estados para manejar los valores temporales de los inputs
+  const [tempPaginasEstaticas, setTempPaginasEstaticas] = useState(0);
+  const [tempPaginasDinamicas, setTempPaginasDinamicas] = useState(0);
+  const [tempSeccion, setTempSeccion] = useState(0);
+
+  const total = useCalculadora(seleccion);
+
+  // Función para manejar el cambio en los checkboxes
+  const handleCheckboxChange = (field, e) => {
+    const isChecked = e.target.checked;
+    if (isChecked) {
+      setSeleccion(s => ({ ...s, [field]: 1 }));
+      if (field === 'paginasEstaticas') setTempPaginasEstaticas(1);
+      if (field === 'paginasDinamicas') setTempPaginasDinamicas(1);
+      if (field === 'seccion') setTempSeccion(1);
+    } else {
+      setSeleccion(s => ({ ...s, [field]: 0 }));
+    }
+  };
+
+  // Función para manejar el cambio en los inputs de número
+  const handleInputChange = (field, e) => {
+    const value = Number(e.target.value);
+    if (field === 'paginasEstaticas') setTempPaginasEstaticas(value);
+    if (field === 'paginasDinamicas') setTempPaginasDinamicas(value);
+    if (field === 'seccion') setTempSeccion(value);
+  };
+
+  // Función para manejar la confirmación al perder el foco o presionar Enter
+  const handleInputBlur = (field, tempValue) => {
+    setSeleccion(s => ({ ...s, [field]: tempValue }));
+  };
 
   return (
     <div className='calculadora' style={{
-        padding: '2rem' ,
-        display: 'flex', // activa el flex
-        flexDirection: 'column', // uno debajo del otro
-        alignItems: 'center'     // centra horizontalmente el bloque
+        padding: '2rem',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
       }}>
 
       <h1>💰 Calculadora de precios</h1>
       <br /><br /><br />
       <div style={{ marginLeft: '5px' }}>
         <label>
-          <input style={{ marginRight: '10px' }}
+          <input
+            style={{ marginRight: '10px' }}
             type="checkbox"
             checked={seleccion.paginaPrincipal}
             onChange={e => setSeleccion(s => ({ ...s, paginaPrincipal: e.target.checked }))}
@@ -39,84 +71,95 @@ export default function Calculadora() {
         <br /><br />
 
         <label>
-          <input style={{ marginRight: '10px' }}
+          <input
+            style={{ marginRight: '10px' }}
             type="checkbox"
             checked={seleccion.paginasEstaticas > 0}
-            onChange={e => setSeleccion(s => ({ ...s, paginasEstaticas: e.target.checked ? 1 : 0 }))}
+            onChange={e => handleCheckboxChange('paginasEstaticas', e)}
           />
           Páginas estáticas
           {seleccion.paginasEstaticas > 0 && (
-            <input style={{ marginLeft: '10px', textAlign: 'center' }}
+            <input
+              style={{ marginLeft: '10px', textAlign: 'center' }}
               min={0}
               max={20}
               type="number"
-              value={seleccion.paginasEstaticas}
-              onChange={e => setSeleccion(s => ({ ...s, paginasEstaticas: Number(e.target.value) }))}
+              value={tempPaginasEstaticas}
+              onChange={e => handleInputChange('paginasEstaticas', e)}
+              onBlur={e => handleInputBlur('paginasEstaticas', Number(e.target.value))}
             />
           )}
         </label>
         <br /><br />
 
         <label>
-          <input style={{ marginRight: '10px' }}
+          <input
+            style={{ marginRight: '10px' }}
             type="checkbox"
             checked={seleccion.paginasDinamicas > 0}
-            onChange={e => setSeleccion(s => ({ ...s, paginasDinamicas: e.target.checked ? 1 : 0 }))}
+            onChange={e => handleCheckboxChange('paginasDinamicas', e)}
           />
           Páginas Dinámicas
           {seleccion.paginasDinamicas > 0 && (
-            <input style={{ marginLeft: '10px', textAlign: 'center' }}
+            <input
+              style={{ marginLeft: '10px', textAlign: 'center' }}
               min={0}
               max={20}
               type="number"
-              value={seleccion.paginasDinamicas}
-              onChange={e => setSeleccion(s => ({ ...s, paginasDinamicas: Number(e.target.value) }))}
+              value={tempPaginasDinamicas}
+              onChange={e => handleInputChange('paginasDinamicas', e)}
+              onBlur={e => handleInputBlur('paginasDinamicas', Number(e.target.value))}
             />
           )}
         </label>
         <br /><br />
 
         <label>
-          <input style={{ marginRight: '10px' }}
+          <input
+            style={{ marginRight: '10px' }}
             type="checkbox"
             checked={seleccion.dominio}
             onChange={e => setSeleccion(s => ({ ...s, dominio: e.target.checked }))}
-            />
-            Dominio
+          />
+          Dominio
         </label>
         <br /><br />
 
         <label>
-          <input style={{ marginRight: '10px' }}
+          <input
+            style={{ marginRight: '10px' }}
             type="checkbox"
             checked={seleccion.seccion > 0}
-            onChange={e => setSeleccion(s => ({ ...s, seccion: e.target.checked ? 1 : 0 }))}
+            onChange={e => handleCheckboxChange('seccion', e)}
           />
           Secciones
           {seleccion.seccion > 0 && (
-            <input style={{ marginLeft: '10px', textAlign: 'center' }}
+            <input
+              style={{ marginLeft: '10px', textAlign: 'center' }}
               min={0}
               max={20}
               type="number"
-              value={seleccion.seccion}
-              onChange={e => setSeleccion(s => ({ ...s, seccion: Number(e.target.value) }))}
+              value={tempSeccion}
+              onChange={e => handleInputChange('seccion', e)}
+              onBlur={e => handleInputBlur('seccion', Number(e.target.value))}
             />
           )}
         </label>
         <br /><br />
 
         <label>
-          <input style={{ marginRight: '10px' }}
+          <input
+            style={{ marginRight: '10px' }}
             type="checkbox"
             checked={seleccion.googleAnalytics}
             onChange={e => setSeleccion(s => ({ ...s, googleAnalytics: e.target.checked }))}
-            />
-            Google Analytics
+          />
+          Google Analytics
         </label>
         <br /><br />
 
         <h2>Total: ${total}</h2>
       </div>
     </div>
-  )
+  );
 }
