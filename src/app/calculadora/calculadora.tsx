@@ -8,7 +8,7 @@ export default function Calculadora() {
     paginaPrincipal: true,
     paginasEstaticas: 0,
     paginasDinamicas: 0,
-    login: false,
+    googleAnalytics: false,
     dominio: false,
     seccion: 0,
     cambios: 0,
@@ -108,10 +108,10 @@ export default function Calculadora() {
         <label>
           <input style={{ marginRight: '10px' }}
             type="checkbox"
-            checked={seleccion.login}
-            onChange={e => setSeleccion(s => ({ ...s, login: e.target.checked }))}
+            checked={seleccion.googleAnalytics}
+            onChange={e => setSeleccion(s => ({ ...s, googleAnalytics: e.target.checked }))}
             />
-            Login
+            Google Analytics
         </label>
         <br /><br />
 
