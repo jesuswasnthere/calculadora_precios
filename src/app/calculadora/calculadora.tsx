@@ -33,17 +33,19 @@ export default function Calculadora() {
       <label>
         <input style={{ marginRight: '10px' }}
           type="checkbox"
-          checked={seleccion.paginasEstaticas}
+          checked={seleccion.paginasEstaticas > 0}
           onChange={e => setSeleccion(s => ({ ...s, paginasEstaticas: e.target.checked ? 1 : 0 }))}
         />
         Páginas estáticas
-        <input style={{ marginLeft: '10px', textAlign: 'center' }}
-          min={0}
-          max={20}
-          type="number"
-          value={seleccion.paginasEstaticas}
-          onChange={e => setSeleccion(s => ({ ...s, paginasEstaticas: Number(e.target.value) }))}
-        />
+        {seleccion.paginasEstaticas > 0 && (
+          <input style={{ marginLeft: '10px', textAlign: 'center' }}
+            min={0}
+            max={20}
+            type="number"
+            value={seleccion.paginasEstaticas}
+            onChange={e => setSeleccion(s => ({ ...s, paginasEstaticas: Number(e.target.value) }))}
+          />
+        )}
       </label>
       <br /><br />
 
