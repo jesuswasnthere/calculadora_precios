@@ -23,7 +23,7 @@ export default function Calculadora() {
   const total = useCalculadora(seleccion);
 
   // Función para manejar el cambio en los checkboxes
-  const handleCheckboxChange = (field, e) => {
+  const handleCheckboxChange = (field: any, e: any) => {
     const isChecked = e.target.checked;
     if (isChecked) {
       setSeleccion(s => ({ ...s, [field]: 1 }));
@@ -36,7 +36,7 @@ export default function Calculadora() {
   };
 
   // Función para manejar el cambio en los inputs de número
-  const handleInputChange = (field, e) => {
+  const handleInputChange = (field: any, e: any) => {
     const value = Number(e.target.value);
     if (field === 'paginasEstaticas') setTempPaginasEstaticas(value);
     if (field === 'paginasDinamicas') setTempPaginasDinamicas(value);
@@ -44,7 +44,7 @@ export default function Calculadora() {
   };
 
   // Función para manejar la confirmación al perder el foco o presionar Enter
-  const handleInputBlur = (field, tempValue) => {
+  const handleInputBlur = (field: any, tempValue: any) => {
     setSeleccion(s => ({ ...s, [field]: tempValue }));
   };
 
