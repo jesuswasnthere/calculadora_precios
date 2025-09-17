@@ -7,7 +7,7 @@ type Seleccion = {
   paginasDinamicas?: number
   dominio?: boolean
   seccion?: number
-  login?: boolean
+  googleAnalytics?: boolean
   ecommerce?: boolean
   cambios?: number
   nuevasFuncionalidades?: number
@@ -31,8 +31,8 @@ export function useCalculadora(seleccion: Seleccion) {
   if (seleccion.dominio) {
     total += precios.funcionalidad.dominio
   }
-  if (seleccion.login) {
-    total += precios.funcionalidad.login ?? 0
+  if (seleccion.googleAnalytics) {
+    total += precios.funcionalidad.googleAnalytics ?? 0
   }
   // if (seleccion.cambios) {
   //   total += seleccion.cambios * precios.postImplementacion.cambios
