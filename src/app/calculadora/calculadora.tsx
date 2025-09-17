@@ -59,7 +59,7 @@ export default function Calculadora() {
       <h1>💰 Calculadora de precios</h1>
       <br /><br /><br />
       <div style={{ marginLeft: '5px' }}>
-        <label>
+        <label style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
           <input
             style={{ marginRight: '10px' }}
             type="checkbox"
@@ -67,10 +67,15 @@ export default function Calculadora() {
             onChange={e => setSeleccion(s => ({ ...s, paginaPrincipal: e.target.checked }))}
           />
           Página principal
+          <div className="tooltip-container">
+            <span className="tooltip-icon">ⓘ</span>
+            <span className="tooltip-text">
+              La página de inicio es la cara de tu sitio web. Es la primera impresión que tus clientes tienen de tu marca.
+            </span>
+          </div>
         </label>
-        <br /><br />
 
-        <label>
+        <label style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
           <input
             style={{ marginRight: '10px' }}
             type="checkbox"
@@ -78,6 +83,12 @@ export default function Calculadora() {
             onChange={e => handleCheckboxChange('paginasEstaticas', e)}
           />
           Páginas estáticas
+          <div className="tooltip-container">
+            <span className="tooltip-icon">ⓘ</span>
+            <span className="tooltip-text">
+              Una página estática es un sitio web simple sin bases de datos o funcionalidades avanzadas. Perfecta para "Acerca de nosotros" o "Contacto".
+            </span>
+          </div>
           {seleccion.paginasEstaticas > 0 && (
             <input
               style={{ marginLeft: '10px', textAlign: 'center' }}
@@ -90,9 +101,8 @@ export default function Calculadora() {
             />
           )}
         </label>
-        <br /><br />
-
-        <label>
+        
+        <label style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
           <input
             style={{ marginRight: '10px' }}
             type="checkbox"
@@ -100,6 +110,12 @@ export default function Calculadora() {
             onChange={e => handleCheckboxChange('paginasDinamicas', e)}
           />
           Páginas Dinámicas
+          <div className="tooltip-container">
+            <span className="tooltip-icon">ⓘ</span>
+            <span className="tooltip-text">
+              Las páginas dinámicas interactúan con una base de datos para mostrar contenido que cambia. Ideal para blogs, tiendas online y portafolios.
+            </span>
+          </div>
           {seleccion.paginasDinamicas > 0 && (
             <input
               style={{ marginLeft: '10px', textAlign: 'center' }}
@@ -112,9 +128,8 @@ export default function Calculadora() {
             />
           )}
         </label>
-        <br /><br />
-
-        <label>
+        
+        <label style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
           <input
             style={{ marginRight: '10px' }}
             type="checkbox"
@@ -122,10 +137,15 @@ export default function Calculadora() {
             onChange={e => setSeleccion(s => ({ ...s, dominio: e.target.checked }))}
           />
           Dominio
+          <div className="tooltip-container">
+            <span className="tooltip-icon">ⓘ</span>
+            <span className="tooltip-text">
+              Tu dominio es el nombre de tu sitio web (ej. "tumarca.com"). Es tu dirección en Internet.
+            </span>
+          </div>
         </label>
-        <br /><br />
-
-        <label>
+        
+        <label style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
           <input
             style={{ marginRight: '10px' }}
             type="checkbox"
@@ -133,6 +153,12 @@ export default function Calculadora() {
             onChange={e => handleCheckboxChange('seccion', e)}
           />
           Secciones
+          <div className="tooltip-container">
+            <span className="tooltip-icon">ⓘ</span>
+            <span className="tooltip-text">
+              Cada sección es un bloque de contenido que organiza la información en tu sitio, como "Testimonios" o "Servicios".
+            </span>
+          </div>
           {seleccion.seccion > 0 && (
             <input
               style={{ marginLeft: '10px', textAlign: 'center' }}
@@ -145,9 +171,8 @@ export default function Calculadora() {
             />
           )}
         </label>
-        <br /><br />
-
-        <label>
+        
+        <label style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
           <input
             style={{ marginRight: '10px' }}
             type="checkbox"
@@ -155,9 +180,15 @@ export default function Calculadora() {
             onChange={e => setSeleccion(s => ({ ...s, googleAnalytics: e.target.checked }))}
           />
           Google Analytics
+          <div className="tooltip-container">
+            <span className="tooltip-icon">ⓘ</span>
+            <span className="tooltip-text">
+              Google Analytics te permite medir el tráfico de tu sitio web para entender cómo lo usan tus visitantes.
+            </span>
+          </div>
         </label>
+        
         <br /><br />
-
         <h2>Total: ${total}</h2>
       </div>
     </div>
