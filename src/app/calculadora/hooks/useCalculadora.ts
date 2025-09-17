@@ -32,7 +32,7 @@ export function useCalculadora(seleccion: Seleccion) {
     total += precios.funcionalidad.dominio
   }
   if (seleccion.googleAnalytics) {
-    total += precios.funcionalidad.googleAnalytics ?? 0
+    total += precios.funcionalidad.googleAnalytics.min
   }
   // if (seleccion.cambios) {
   //   total += seleccion.cambios * precios.postImplementacion.cambios
