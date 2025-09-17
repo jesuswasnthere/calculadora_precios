@@ -19,7 +19,7 @@ export default function Calculadora() {
     <div style={{ padding: '2rem' }}>
       <h1>💰 Calculadora de precios</h1>
       <br />
-      <div style={{ marginRight: '10px' }}>
+      <div style={{ marginLeft: '50px' }}>
         <label>
           <input style={{ marginRight: '10px' }}
             type="checkbox"
