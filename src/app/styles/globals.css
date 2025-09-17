@@ -144,20 +144,21 @@ h2 {
 
 /* Móviles */
 /* --- Responsividad mejorada para Móviles --- */
-/* --- Estilos finales para Móviles --- */
 @media (max-width: 480px) {
   .container {
     padding: 1rem;
   }
   
   .calculadora {
-    width: 100%;
+    max-width: 100%;
     padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Agrega un efecto 3D */
   }
 
   h1 {
     font-size: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
   
   h2 {
@@ -166,15 +167,33 @@ h2 {
   }
 
   label {
-    /* Alineación de los elementos */
+    /* Alineación de los elementos en una fila */
     display: flex;
-    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: space-between; /* Empuja el input al final */
+    align-items: center; /* Centra verticalmente */
     width: 100%;
-    margin-bottom: 1.5rem; /* Espacio entre cada opción */
+    margin-bottom: 1.5rem; /* Más espacio entre cada opción */
+    font-size: 1rem;
+  }
+  
+  /* Contenedor para el texto y el checkbox, para que no se separen */
+  .label-text {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Permite que el texto ocupe el espacio disponible */
   }
 
   input[type="checkbox"] {
-    margin-right: 15px; /* Espacio entre el checkbox y el texto */
-    transform: scale(1.2); /* Agrandar para que sea fácil de tocar */
+    margin-right: 15px; /* Más espacio entre el checkbox y el texto */
+    transform: scale(1.2); /* Agrandar el checkbox para que sea más fácil de tocar */
+  }
+
+  input[type="number"] {
+    text-align: center;
+    width: 60px; /* Ancho fijo para el campo de número */
+    max-width: 60px;
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 5px;
   }
 }
