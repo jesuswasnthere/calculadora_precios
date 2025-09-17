@@ -143,52 +143,57 @@ h2 {
 }
 
 /* Móviles */
-/* --- Responsividad optimizada para Móviles --- */
+/* --- Responsividad mejorada para Móviles --- */
 @media (max-width: 480px) {
- 
- /* Ajustar el contenedor principal */
- .container {
-   padding: 1rem; /* Reducir el relleno para aprovechar el espacio */
-   line-height: 1.5; /* Aumentar el espacio entre líneas para mejor legibilidad */
- }
+  .container {
+    padding: 1rem;
+  }
+  
+  .calculadora {
+    max-width: 100%;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Agrega un efecto 3D */
+  }
 
- /* Estilos del título principal */
- h1 {
-   font-size: 1.5rem; /* Título más pequeño para móviles */
-   margin-bottom: 1.5rem; /* Aumentar el espacio debajo del título */
- }
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+    margin-top: 2rem;
+  }
 
- /* Estilos para las etiquetas de los checkboxes */
- label {
-   /* Usar flexbox para alinear el checkbox y el texto */
-   display: flex;
-   align-items: center; /* Centrar verticalmente los elementos */
-   font-size: 1rem; /* Asegurar un tamaño de fuente legible */
-   margin-bottom: 1.25rem; /* Espaciar las opciones para que no se vean amontonadas */
- }
+  label {
+    /* Alineación de los elementos en una fila */
+    display: flex;
+    justify-content: space-between; /* Empuja el input al final */
+    align-items: center; /* Centra verticalmente */
+    width: 100%;
+    margin-bottom: 1.5rem; /* Más espacio entre cada opción */
+    font-size: 1rem;
+  }
+  
+  /* Contenedor para el texto y el checkbox, para que no se separen */
+  .label-text {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Permite que el texto ocupe el espacio disponible */
+  }
 
- /* Ajustar el tamaño del checkbox */
- input[type="checkbox"] {
-   transform: scale(1.2); /* Agrandar un poco el checkbox para que sea más fácil de tocar */
-   margin-right: 15px; /* Más espacio entre el checkbox y el texto */
- }
+  input[type="checkbox"] {
+    margin-right: 15px; /* Más espacio entre el checkbox y el texto */
+    transform: scale(1.2); /* Agrandar el checkbox para que sea más fácil de tocar */
+  }
 
- /* Ocultar el total si no lo necesitas visible todo el tiempo o ajustarlo */
- h2 {
-   font-size: 1.5rem; /* Mantener un buen tamaño para el total */
-   margin-top: 2rem;
- }
-
- /* Ajuste general para la calculadora */
- .calculadora {
-   padding: 1rem;
-   border-radius: 10px;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añadir una sombra sutil para darle profundidad */
- }
-
- /* Si usas la clase 'total-label' para el total, puedes darle estilos específicos */
- .total-label {
-   font-weight: bold;
-   color: #4CAF50; /* Un color que destaque para el total */
- }
+  input[type="number"] {
+    text-align: center;
+    width: 60px; /* Ancho fijo para el campo de número */
+    max-width: 60px;
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 5px;
+  }
 }
