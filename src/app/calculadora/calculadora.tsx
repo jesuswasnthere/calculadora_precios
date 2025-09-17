@@ -10,6 +10,7 @@ export default function Calculadora() {
     paginasDinamicas: 0,
     login: false,
     dominio: false,
+    seccion: 0,
     cambios: 0,
     nuevasFuncionalidades: 0
   })
@@ -82,6 +83,25 @@ export default function Calculadora() {
             onChange={e => setSeleccion(s => ({ ...s, dominio: e.target.checked }))}
             />
             Dominio
+        </label>
+        <br /><br />
+
+        <label>
+          <input style={{ marginRight: '10px' }}
+            type="checkbox"
+            checked={seleccion.seccion > 0}
+            onChange={e => setSeleccion(s => ({ ...s, seccion: e.target.checked ? 1 : 0 }))}
+          />
+          Secciones
+          {seleccion.seccion > 0 && (
+            <input style={{ marginLeft: '10px', textAlign: 'center' }}
+              min={0}
+              max={20}
+              type="number"
+              value={seleccion.seccion}
+              onChange={e => setSeleccion(s => ({ ...s, seccion: Number(e.target.value) }))}
+            />
+          )}
         </label>
         <br /><br />
 
