@@ -16,10 +16,16 @@ export default function Calculadora() {
   const total = useCalculadora(seleccion)
 
   return (
-    <div style={{ padding: '2rem' }}>
+    <div style={{
+        padding: '2rem' ,
+        display: 'flex', // activa el flex
+        flexDirection: 'column', // uno debajo del otro
+        alignItems: 'center'     // centra horizontalmente el bloque
+      }}>
+
       <h1>💰 Calculadora de precios</h1>
       <br />
-      <div style={{ marginLeft: '50px' }}>
+      <div style={{ marginLeft: '5px' }}>
         <label>
           <input style={{ marginRight: '10px' }}
             type="checkbox"
