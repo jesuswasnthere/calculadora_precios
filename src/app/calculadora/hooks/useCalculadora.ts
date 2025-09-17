@@ -1,5 +1,5 @@
 // src/app/calculadora/hooks/useCalculadora.ts
-import { precios } from '../data/precios'
+import { precios } from '@/app/calculadora/data/precios'
 
 type Seleccion = {
   paginaPrincipal?: boolean
@@ -21,10 +21,10 @@ export function useCalculadora(seleccion: Seleccion) {
     total += seleccion.paginasEstaticas * precios.implementacion.paginaEstatica.min
   }
   if (seleccion.paginasConjuntas) {
-    total += seleccion.paginasConjuntas * precios.implementacion.paginaConjunta.min
+    total += seleccion.paginasConjuntas * precios.implementacion.paginaDinamica.min
   }
   if (seleccion.login) {
-    total += precios.funcionalidad.login
+    total += precios.funcionalidad.login ?? 0
   }
   if (seleccion.cambios) {
     total += seleccion.cambios * precios.postImplementacion.cambios

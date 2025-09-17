@@ -1,7 +1,7 @@
 // src/app/calculadora/Calculadora.tsx
 'use client'
 import { useState } from 'react'
-import { useCalculadora } from './hooks/useCalculadora'
+import { useCalculadora } from '@/app/calculadora/hooks/useCalculadora'
 
 export default function Calculadora() {
   const [seleccion, setSeleccion] = useState({
