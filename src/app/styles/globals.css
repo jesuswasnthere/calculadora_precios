@@ -31,7 +31,7 @@
 .calculadora {
   animation: bounceIn 0.8s ease-out;
   width: 100%;
-  max-width: 600px; /* límite para que no se estire demasiado */
+  max-width: 600px;
 }
 
 /* Reset y estilos base */
@@ -108,6 +108,23 @@ h2 {
 }
 
 /* --- Responsividad --- */
+
+/* Escritorio grande */
+@media (min-width: 1024px) {
+  .calculadora {
+    max-width: 900px; /* más ancho en PC */
+    padding: 3rem;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  label {
+    font-size: 1.1rem;
+  }
+}
 
 /* Tablets y pantallas medianas */
 @media (max-width: 768px) {
