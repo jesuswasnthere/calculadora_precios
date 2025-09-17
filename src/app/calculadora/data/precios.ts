@@ -12,7 +12,7 @@ export const precios = {
     animacionConjunta: { min: 3, max: 20 },
     login: null, // "Concretar"
     gestionContenido: null,
-    googleAnalytics: 0,
+    googleAnalytics: { min: 3, max: 10 },
     seo: { min: 0, max: 10 },
     hosting: 0,
     indexarGoogle: 0
