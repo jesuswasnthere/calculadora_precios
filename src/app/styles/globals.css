@@ -701,31 +701,33 @@ h2 {
 
 .titulo-animado span {
   position: relative;
-  display: block;
-  padding: 1rem 2.5rem;
-  font-size: 1.8rem; /* Reducido ligeramente el tamaño base */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   background: var(--background);
   color: var(--foreground);
   border-radius: 8px;
   height: 100%;
   text-align: center;
-
-  /* --- CAMBIOS PARA RESPONSIVE --- */
-  white-space: nowrap; /* Fuerza a que el texto esté en UNA SOLA LÍNEA */
+  
+  /* Arregla el problema de que las letras se monten unas sobre otras */
+  line-height: 1.3; 
+  /* Permite que baje de línea naturalmente si no cabe */
+  white-space: normal; 
 }
 
 /* Ajuste responsivo para móviles */
 @media (max-width: 480px) {
   .titulo-animado {
-    /* Agregamos un pequeño margen lateral para que no toque los bordes de la pantalla */
-    max-width: 90%; 
+    max-width: 95%;
   }
   
   .titulo-animado span {
-    /* Reducimos la fuente significativamente para que quepa en una línea */
-    font-size: 1.1rem; 
-    padding: 0.6rem 1.2rem; /* Ajustamos el padding */
+    font-size: 1.15rem; /* Ajuste preciso para que "WebPages" quepa bien */
+    padding: 0.6rem 0.8rem;
   }
 }
 
