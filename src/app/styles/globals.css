@@ -106,7 +106,8 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Todo el texto usará Montserrat por defecto */
+  font-family: var(--font-principal), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 0.5;
@@ -705,6 +706,7 @@ h2 {
   align-items: center;
   justify-content: center;
   padding: 1rem 2rem;
+  font-family: var(--font-titulos), sans-serif;
   font-size: 1.8rem;
   font-weight: bold;
   background: var(--background);
@@ -923,6 +925,7 @@ h2 {
 
 .total-wrapper h2 {
   margin: 0;
+  font-family: var(--font-titulos), sans-serif;
   font-size: 1.5rem;
   line-height: 1.2;
 }
