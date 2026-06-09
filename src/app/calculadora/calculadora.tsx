@@ -190,15 +190,9 @@ export default function Calculadora() {
             
             <br /><br />
           
-          {/* Contenedor Flex para alinear el H2 y el Botón horizontalmente */}
-          <div style={{ 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            gap: '20px' 
-          }}>
+          <div className="total-wrapper">
             
-            <h2 style={{ margin: 0 }}>
+            <h2>
               Total estimado: ${minTotal} {minTotal !== maxTotal ? `- $${maxTotal}` : ''}
             </h2>
             

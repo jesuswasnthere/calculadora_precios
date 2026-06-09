@@ -911,3 +911,27 @@ h2 {
   top: -40px; /* Un punto intermedio perfecto: ni muy lejos (-50px) ni muy metido en el brillo (-35px) */
   opacity: 1;
 }
+
+/* --- Contenedor del Total y Carrito --- */
+.total-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.total-wrapper h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+@media (max-width: 480px) {
+  .total-wrapper {
+    gap: 12px; /* Acerca más el carrito al texto */
+  }
+  .total-wrapper h2 {
+    font-size: 1.1rem; /* Achica la fuente para que el rango de precios quepa en una sola línea */
+  }
+}
