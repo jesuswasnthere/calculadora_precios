@@ -14,32 +14,34 @@ type Seleccion = {
 }
 
 export function useCalculadora(seleccion: Seleccion) {
-  let total = 0
+  let minTotal = 0
+  let maxTotal = 0
 
   if (seleccion.paginaPrincipal) {
-    total += precios.implementacion.paginaPrincipal
+    minTotal += precios.implementacion.paginaPrincipal
+    maxTotal += precios.implementacion.paginaPrincipal // Precio fijo
   }
   if (seleccion.paginasEstaticas) {
-    total += seleccion.paginasEstaticas * precios.implementacion.paginaEstatica.min
+    minTotal += seleccion.paginasEstaticas * precios.implementacion.paginaEstatica.min
+    maxTotal += seleccion.paginasEstaticas * precios.implementacion.paginaEstatica.max
   }
   if (seleccion.paginasDinamicas) {
-    total += seleccion.paginasDinamicas * precios.implementacion.paginaDinamica.min
+    minTotal += seleccion.paginasDinamicas * precios.implementacion.paginaDinamica.min
+    maxTotal += seleccion.paginasDinamicas * precios.implementacion.paginaDinamica.max
   }
   if (seleccion.seccion) {
-    total += seleccion.seccion * precios.funcionalidad.seccion.min
+    minTotal += seleccion.seccion * precios.funcionalidad.seccion.min
+    maxTotal += seleccion.seccion * precios.funcionalidad.seccion.max
   }
   if (seleccion.dominio) {
-    total += precios.funcionalidad.dominio
+    minTotal += precios.funcionalidad.dominio
+    maxTotal += precios.funcionalidad.dominio // Precio fijo
   }
   if (seleccion.googleAnalytics) {
-    total += precios.funcionalidad.googleAnalytics.min
+    minTotal += precios.funcionalidad.googleAnalytics.min
+    maxTotal += precios.funcionalidad.googleAnalytics.max
   }
-  // if (seleccion.cambios) {
-  //   total += seleccion.cambios * precios.postImplementacion.cambios
-  // }
-  // if (seleccion.nuevasFuncionalidades) {
-  //   total += seleccion.nuevasFuncionalidades * precios.postImplementacion.nuevasFuncionalidades
-  // }
 
-  return total
+  // Ahora devolvemos un objeto con ambos valores
+  return { minTotal, maxTotal }
 }
