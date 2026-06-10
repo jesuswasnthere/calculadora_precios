@@ -1,7 +1,7 @@
 // data/precios.ts
 export const precios = {
   implementacion: {
-    paginaPrincipal: 40,
+    paginaPrincipal: 45,
     paginaEstatica: { min: 5, max: 10 },
     paginaDinamica: { min: 10, max: 30 }
   },
