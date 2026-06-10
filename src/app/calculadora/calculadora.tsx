@@ -7,15 +7,16 @@ import NeoCounter from '@/app/calculadora/components/NeoCounter'
 import BtnCotizar from '@/app/calculadora/components/BtnCotizar'
 
 // 1. Tipamos los campos exactos para evitar el uso de 'any'
-type CamposNumericos = 'paginasEstaticas' | 'paginasDinamicas' | 'seccion';
+type CamposNumericos = 'paginasEstaticas' | 'paginasDinamicas' | 'seccion' | 'corpmail';
 
 export default function Calculadora() {
   const [seleccion, setSeleccion] = useState({
     paginaPrincipal: true,
     paginasEstaticas: 1,
     paginasDinamicas: 1,
+    corpmail: 0,
     googleAnalytics: false,
-    dominio:true,
+    dominio: true,
     seccion: 1,
     cambios: 0,
     nuevasFuncionalidades: 0
@@ -25,6 +26,7 @@ export default function Calculadora() {
   const [tempPaginasEstaticas, setTempPaginasEstaticas] = useState(1);
   const [tempPaginasDinamicas, setTempPaginasDinamicas] = useState(1);
   const [tempSeccion, setTempSeccion] = useState(1);
+  const [tempCorpmail, setTempCorpmail] = useState(0);
 
   const { minTotal, maxTotal } = useCalculadora(seleccion);
 
@@ -35,12 +37,14 @@ export default function Calculadora() {
       if (field === 'paginasEstaticas') setTempPaginasEstaticas(1);
       if (field === 'paginasDinamicas') setTempPaginasDinamicas(1);
       if (field === 'seccion') setTempSeccion(1);
+      if (field === 'corpmail') setTempCorpmail(1);
     } else {
       setSeleccion(s => ({ ...s, [field]: 0 }));
       // Reseteamos los estados temporales a 0 si desmarcan la opción
       if (field === 'paginasEstaticas') setTempPaginasEstaticas(0);
       if (field === 'paginasDinamicas') setTempPaginasDinamicas(0);
       if (field === 'seccion') setTempSeccion(0);
+      if (field === 'corpmail') setTempCorpmail(0);
     }
   };
 
@@ -50,6 +54,7 @@ export default function Calculadora() {
     if (field === 'paginasEstaticas') setTempPaginasEstaticas(value);
     if (field === 'paginasDinamicas') setTempPaginasDinamicas(value);
     if (field === 'seccion') setTempSeccion(value);
+    if (field === 'corpmail') setTempCorpmail(value);
   };
 
   const handleInputBlur = (field: CamposNumericos, tempValue: number) => {
@@ -169,6 +174,32 @@ export default function Calculadora() {
                     setTempSeccion(val);
                     setSeleccion(s => ({ ...s, seccion: val }));
                   }} 
+                />
+              )}
+            </label>
+
+            <label style={{ display: 'flex', alignItems: 'center', marginBottom: '15px', gap: '10px' }}>
+              <NeoToggle
+                id="toggle-corpmail"
+                checked={seleccion.corpmail > 0}
+                onChange={(checked: boolean) => handleCheckboxChange('corpmail', checked)}
+              />
+              <span>Correos Corporativos</span>
+              <div className="tooltip-container">
+                <span className="tooltip-icon">ⓘ</span>
+                <span className="tooltip-text">
+                  Cada correo corporativo es una dirección de email profesional que representa tu marca, ¡Adquiere hasta 5!
+                </span>
+              </div>
+              {seleccion.corpmail > 0 && (
+                <NeoCounter 
+                  value={tempCorpmail} 
+                  onChange={(val) => {
+                    const MAX_CORPMAIL = 5;
+                    const limitado = Math.min(MAX_CORPMAIL, val);
+                    setTempCorpmail(limitado);
+                    setSeleccion(s => ({ ...s, corpmail: limitado }));
+                  }}
                 />
               )}
             </label>

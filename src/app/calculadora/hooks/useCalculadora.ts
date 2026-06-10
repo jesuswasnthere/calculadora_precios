@@ -7,6 +7,7 @@ type Seleccion = {
   paginasDinamicas?: number
   dominio?: boolean
   seccion?: number
+  corpmail?: number
   googleAnalytics?: boolean
   ecommerce?: boolean
   cambios?: number
@@ -36,6 +37,10 @@ export function useCalculadora(seleccion: Seleccion) {
   if (seleccion.dominio) {
     minTotal += precios.funcionalidad.dominio
     maxTotal += precios.funcionalidad.dominio // Precio fijo
+  }
+    if (seleccion.corpmail) {
+    minTotal += seleccion.corpmail * precios.funcionalidad.corpmail
+    maxTotal += seleccion.corpmail * precios.funcionalidad.corpmail // Un solo precio
   }
   if (seleccion.googleAnalytics) {
     minTotal += precios.funcionalidad.googleAnalytics.min
